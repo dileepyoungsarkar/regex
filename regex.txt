@@ -1,0 +1,89 @@
+short hand charcter set:
+\d :digit [0-9]
+\w : word character [a-zA-Z0-9_]
+\s :whitespace [\t\r\n]
+\D :not digit [^0-9]
+\w :not word chracter [^a-zA-Z0-9_]
+repetition metacharecter :
+* preceding item zero or more times
++ preceding item one or more
+? preceding zero orone
+\w+s
+quantified repetition: {min,max}
+min and max should be positive number 
+min shoud be included and max optional
+\d{4,8} match with the numer 4 or 8
+\w+_\d+-\d+
+
+ex:report_1997-04
+budget_03-04
+memo_7665-100
+/(abc)+/
+/(in)?dependent/ matches independenet 
+and dependent
+
+to find repeating word :
+\b([A-Z][a-z]+)\b\s\b\1son\b
+
+
+backrefernces become zero-width too
+/(A?)B\1/ matches "ABA" and "B"
+
+^\d{1,2},[\w.]+? [\w]+?,\d{4}
+/(?:regex)/
+?="give this group a different meaning"
+: ="the meaning is non capturing"
+?= positive lookahead assertion
+/(?=regex)/
+/(?=seashore) sea/ matches"sea" in "seashore" but not "seaside"
+
+\b[A-Za-z']+\b(?=,)
+matches phone number:
+/^[0-5\-]+$/ matches 555-302-4321
+(?=^[0-5\-]+$)(?=.*4321)\d{3]-\d{3}-\d{4}
+\b(?=\w+gh)[A-Za-z']+?\b(?=,)
+
+to check whether fro password:
+^(?=.*\d)(?=.*[A-Z]).{8,15}$
+
+negative /(?!regex)/
+/online(?!seashore) sea/
+matches sea in seaside
+
+last occuring (\bblack\b)(?!.*\1
+/(?<![$\d])\d+\.\d\d/
+
+/^\w+$/ to find from begining and end is word char
+
+^[A-Za-z]+$ 
+
+postal code :
+^\d{5}(?:-\d{4})?$
+(?:-\d{4})?---- optional.
+^[A-Z]\d(?:) \d[A-z][A-Z]$
+
+^[A-Z]{1,2}\d{1,2}[A-Z]? \d[A-Z]{2}$ ex:A9 9AA
+ex2:AA99 9AA
+
+if need to put to optional then [A-Z]?
+
+for email: someoone@onewhere.com
+^[\w.%+\-]+@[\w.]+\.\[A-Za-z]{2,3}$
+
+^(http|https):\/\/[\w.\-]+\.[A-Za-z]{2,6}\.\w+{2,3}
+
+^(http|https):\/\/[\w.\-]+(\.[\w\-]+)
++[\w\-.,@?^=%\\]$
+
+^\d{4}[-/](0?[1-9]|1[0-2])[-/](0?[1-9]|[12][0-9]|3[01])$
+//dates:
+
+ time://
+ ^(0?[1-9]|1[0-2]):[0-5][0-9]([aApP][mM])?$
+ 
+ for html:
+ ^<(([A-Za-z][A-Za-z0-9]*)\b[^>]*>(.*/)</1>
+ 
+ for password://
+ ^(?=.*\d)(?=.*[~!@#$%^&*()_\-+=\\{}[\])(?=.*[A-Z](?=.*[a-z])\S{8,15}$
+ 
